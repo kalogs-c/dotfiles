@@ -9,8 +9,9 @@ null_ls.setup({
     formatting.gofmt,
     formatting.fixjson,
     formatting.yamlfmt,
-    formatting.eslint_d,
+    formatting.eslint,
 
     diagnostics.tsc,
+    diagnostics.eslint,
   }
 })

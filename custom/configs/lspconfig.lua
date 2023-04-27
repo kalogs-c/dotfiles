@@ -40,3 +40,53 @@ lspconfig.yamlls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+lspconfig.eslint.setup {
+  on_attach = function(_, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+  capabilities = capabilities,
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+    "vue",
+    "svelte",
+    "astro"
+  }
+}
+
+lspconfig.svelte.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "svelte" }
+}
+
+lspconfig.astro.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "astro" },
+  init_options = {
+    typescript = {
+      serverPath = "/home/carlinhos/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript"
+    }
+  }
+}
+
+lspconfig.gleam.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "gleam" }
+}
+
+lspconfig.hls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "haskell" }
+}
