@@ -14,7 +14,7 @@ eval "$(starship init zsh)"
 alias ls="exa -l"
 alias cat=bat
 alias gadd="git add ."
-alias gc="git commit -m"
+alias gc="git commit"
 alias gp="git push"
 alias tkp="tmux kill-pane"
 alias tls="tmux list-sessions"
@@ -27,7 +27,7 @@ source /opt/asdf-vm/asdf.sh
 # Functions
 function gcommit
 {
-	command git add . && git commit -m $1 && git push
+	command git add . && git commit && git push
 }
 
 function mcdir
@@ -40,3 +40,5 @@ if [ -f '/home/carlinhos/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/ho
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/carlinhos/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/carlinhos/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f "/home/carlinhos/.ghcup/env" ] && source "/home/carlinhos/.ghcup/env" # ghcup-env
