@@ -23,6 +23,7 @@ alias i-list="adonis create-conversion-list"
 
 # ASDF
 source /opt/asdf-vm/asdf.sh
+export PATH="~/.asdf/installs/rust/1.68.2/bin/:$PATH"
 
 # Functions
 function gcommit

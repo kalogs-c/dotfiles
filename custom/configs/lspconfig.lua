@@ -2,16 +2,33 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilites
 local util = require("lspconfig/util")
 local lspconfig = require("lspconfig")
+local navbuddy = require("nvim-navbuddy")
+
+on_attach = function (client, bufnr)
+  navbuddy.attach(client, bufnr)
+end
 
 lspconfig.gopls.setup {
-  on_attach = on_attach,
+  on_attach = function(_, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "GoFmt",
+    })
+  end,
   capabilities = capabilities,
-  filetypes = { "go", "gomod" },
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
   settings = {
     gopls = {
       buildFlags = { "-tags=wireinject" },
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      }
     },
   },
+  root_dir = util.root_pattern("go.mod", "go.sum", "go.work"),
 }
 
 lspconfig.tsserver.setup {
@@ -39,6 +56,17 @@ lspconfig.dockerls.setup {
 lspconfig.yamlls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    yaml = {
+      keyOrdering = false,
+    }
+  }
+}
+
+lspconfig.denols.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_dir = util.root_pattern("deno.json", "deno.jsonc"),
 }
 
 lspconfig.eslint.setup {
@@ -89,4 +117,15 @@ lspconfig.hls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "haskell" }
+}
+
+lspconfig.ltex.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "markdown", "tex" },
+  settings = {
+    ltex = {
+      language = {"en-GB", "pt-BR"},
+    }
+  }
 }

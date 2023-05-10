@@ -7,6 +7,8 @@ M.abc = {
     ["<leader>gb"] = {":Telescope git_branches <CR>", "Git branches"},
     ["<leader>gdv"] = {":Gvdiff <CR>", "Show diff vertical"},
     ["<leader>gdh"] = {":Ghdiff <CR>", "Show diff horizontal"},
+    ["<leader>nv"] = {":Navbuddy <CR>", "Navbuddy"},
+    ["<leader>ca"] = {":CodeActionMenu <CR>", "Code Action"},
   }
 }
 

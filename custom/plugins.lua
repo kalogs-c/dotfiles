@@ -8,9 +8,20 @@ local plugins = {
     end,
     dependencies = {
       "jose-elias-alvarez/null-ls.nvim",
-      config = function()
+      opts = function()
         require "custom.configs.null-ls"
       end,
+      {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+          "neovim/nvim-lspconfig",
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+          "numToStr/Comment.nvim",
+          "nvim-telescope/telescope.nvim"
+        },
+        opts =  { lsp = { auto_attach = true } }
+      }
     },
   },
   {
@@ -19,7 +30,10 @@ local plugins = {
       ensure_installed = {
         "rust-analyzer",
         "gopls",
+        "gofumpt",
         "gomodifytags",
+        "goimports-reviser",
+        "golines",
         "pyright",
         "typescript-language-server",
         "docker-compose-language-service",
@@ -28,11 +42,19 @@ local plugins = {
         "svelte-language-server",
         "astro-language-server",
         "eslint-lsp",
+        "deno",
         "fixjson",
         "gleam",
-        "haskell-language-server"
+        "haskell-language-server",
+        "ltex-ls",
       },
     },
+  },
+  {
+    "nvim-telescope/telescope-live-grep-args.nvim",
+  },
+  {
+    "xiyaowong/telescope-emoji.nvim",
   },
   {
     "rust-lang/rust.vim",
@@ -96,6 +118,29 @@ local plugins = {
     config = function ()
       require("custom.configs.catppuccin")
     end
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    lazy = false
+  },
+  {
+    "RRethy/vim-illuminate",
+    lazy = false
+  },
+  {
+    'Exafunction/codeium.vim',
+    lazy = false
+  },
+  {
+    "ggandor/leap.nvim",
+    dependencies = {
+      "tpope/vim-repeat",
+    },
+    lazy = false
+  },
+  {
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
   }
 }
 return plugins
