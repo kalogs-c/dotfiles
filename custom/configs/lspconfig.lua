@@ -1,20 +1,15 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilites
-local util = require("lspconfig/util")
-local lspconfig = require("lspconfig")
-local navbuddy = require("nvim-navbuddy")
+local util = require "lspconfig/util"
+local lspconfig = require "lspconfig"
+local navbuddy = require "nvim-navbuddy"
 
-on_attach = function (client, bufnr)
+local on_attach = function(client, bufnr)
+  require("plugins.configs.lspconfig").on_attach(client, bufnr)
   navbuddy.attach(client, bufnr)
 end
 
 lspconfig.gopls.setup {
-  on_attach = function(_, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "GoFmt",
-    })
-  end,
+  on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -25,7 +20,7 @@ lspconfig.gopls.setup {
       usePlaceholders = true,
       analyses = {
         unusedparams = true,
-      }
+      },
     },
   },
   root_dir = util.root_pattern("go.mod", "go.sum", "go.work"),
@@ -59,8 +54,8 @@ lspconfig.yamlls.setup {
   settings = {
     yaml = {
       keyOrdering = false,
-    }
-  }
+    },
+  },
 }
 
 lspconfig.denols.setup {
@@ -86,37 +81,8 @@ lspconfig.eslint.setup {
     "typescript.tsx",
     "vue",
     "svelte",
-    "astro"
-  }
-}
-
-lspconfig.svelte.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "svelte" }
-}
-
-lspconfig.astro.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "astro" },
-  init_options = {
-    typescript = {
-      serverPath = "/home/carlinhos/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript"
-    }
-  }
-}
-
-lspconfig.gleam.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "gleam" }
-}
-
-lspconfig.hls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "haskell" }
+    "astro",
+  },
 }
 
 lspconfig.ltex.setup {
@@ -125,7 +91,7 @@ lspconfig.ltex.setup {
   filetypes = { "markdown", "tex" },
   settings = {
     ltex = {
-      language = {"en-GB", "pt-BR"},
-    }
-  }
+      language = { "en-GB", "pt-BR" },
+    },
+  },
 }
