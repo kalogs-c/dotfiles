@@ -10,9 +10,17 @@ M.treesitter = {
     "typescript",
     "tsx",
     "c",
+    "cpp",
     "markdown",
     "markdown_inline",
     "svelte",
+    "go",
+    "rust",
+    "python",
+    "bash",
+    "json",
+    "yaml",
+    "dockerfile",
   },
   indent = {
     enable = true,
@@ -33,6 +41,7 @@ M.mason = {
     "prettier",
     "eslint-lsp",
     "fixjson",
+    "svelte-language-server",
 
     -- c/cpp stuff
     "clangd",
@@ -49,11 +58,12 @@ M.mason = {
     "gofumpt",
     "goimports-reviser",
     "golines",
+    "gomodifytags",
 
     -- devops stuff
     "dockerfile-language-server",
-    "docker-compose-language-server",
     "yaml-language-server",
+    "docker-compose-language-service",
 
     -- markdown
     "ltex-ls",
@@ -64,6 +74,10 @@ M.mason = {
 M.nvimtree = {
   git = {
     enable = true,
+    ignore = false,
+  },
+  filters = {
+    custom = { ".git$" },
   },
 
   renderer = {

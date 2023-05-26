@@ -1,12 +1,33 @@
-local capabilities = require("plugins.configs.lspconfig").capabilites
 local util = require "lspconfig/util"
 local lspconfig = require "lspconfig"
-local navbuddy = require "nvim-navbuddy"
+local nvchadLspConfig = require "plugins.configs.lspconfig"
 
 local on_attach = function(client, bufnr)
-  require("plugins.configs.lspconfig").on_attach(client, bufnr)
-  navbuddy.attach(client, bufnr)
+  nvchadLspConfig.on_attach(client, bufnr)
+  require("nvim-navbuddy").attach(client, bufnr)
 end
+
+local capabilities = nvchadLspConfig.capabilites
+
+lspconfig.html.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "htmldjango" },
+}
+
+lspconfig.cssls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "css", "scss", "less" },
+}
+
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+  capabilities = {
+    offsetEncoding = { "utf-16" },
+  },
+  filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
+}
 
 lspconfig.gopls.setup {
   on_attach = on_attach,
@@ -64,13 +85,14 @@ lspconfig.denols.setup {
   root_dir = util.root_pattern("deno.json", "deno.jsonc"),
 }
 
+lspconfig.svelte.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "svelte" },
+}
+
 lspconfig.eslint.setup {
-  on_attach = function(_, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-  end,
+  on_attach = nvchadLspConfig.on_attach,
   capabilities = capabilities,
   filetypes = {
     "javascript",
