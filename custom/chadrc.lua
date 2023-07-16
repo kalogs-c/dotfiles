@@ -1,22 +1,18 @@
----@type ChadrcConfig
-local M = {}
+---@type ChadrcConfig 
+ local M = {}
+ 
+ local highlights = require "custom.highlights"
 
--- Path to overriding theme and highlights files
-local highlights = require "custom.highlights"
+ M.ui = {
+  theme = 'ayu_dark',
+  theme_toggle = { "ayu_dark", "one_light" },
 
-M.ui = {
-  theme = "gruvbox",
-  theme_toggle = { "gruvbox", "one_light" },
-
-  hl_override = highlights.override,
   hl_add = highlights.add,
+  hl_override = highlights.override,
+ }
 
-  transparency = true,
-}
+ M.plugins = "custom.plugins"
 
-M.plugins = "custom.plugins"
+ M.mappings = require "custom.mappings"
 
--- check core.mappings for table structure
-M.mappings = require "custom.mappings"
-
-return M
+ return M

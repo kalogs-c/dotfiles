@@ -64,6 +64,11 @@ lspconfig.docker_compose_language_service.setup {
   capabilities = capabilities,
 }
 
+lspconfig.terraformls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 lspconfig.dockerls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -116,4 +121,45 @@ lspconfig.ltex.setup {
       language = { "en-GB", "pt-BR" },
     },
   },
+}
+
+lspconfig.sqlls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.intelephense.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.phpactor.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.ruby_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.jdtls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.elixirls.setup {
+  cmd = { "/home/carlinhos/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.clojure_lsp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 }

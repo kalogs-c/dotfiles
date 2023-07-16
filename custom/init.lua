@@ -9,4 +9,3 @@ autocmd("VimResized", {
 vim.opt.relativenumber = true
 vim.o.clipboard = "unnamedplus"
 vim.opt.clipboard = "unnamedplus"
-vim.g.terminal_emulator = "nushell"

@@ -26,11 +26,15 @@ local sources = {
 
   -- go
   b.formatting.gofumpt,
-  b.formatting.goimports_reviser,
+  -- b.formatting.goimports_reviser,
   b.formatting.golines,
 
   -- C/C++
   b.formatting.clang_format,
+
+  -- devops
+  b.formatting.terraform_fmt,
+  b.formatting.sql_formatter,
 }
 
 local on_attach = function(client, bufnr)

@@ -21,6 +21,14 @@ M.treesitter = {
     "json",
     "yaml",
     "dockerfile",
+    "terraform",
+    "sql",
+    "php",
+    "kotlin",
+    "ruby",
+    "java",
+    "elixir",
+    "clojure",
   },
   indent = {
     enable = true,
@@ -42,6 +50,14 @@ M.mason = {
     "eslint-lsp",
     "fixjson",
     "svelte-language-server",
+    "intelephense",
+    "phpactor",
+    "ruby-lsp",
+    "jdtls",
+
+    -- functional stuff
+    "elixir-ls",
+    "clojure-lsp",
 
     -- c/cpp stuff
     "clangd",
@@ -64,6 +80,8 @@ M.mason = {
     "dockerfile-language-server",
     "yaml-language-server",
     "docker-compose-language-service",
+    "terraform-ls",
+    "sqlls",
 
     -- markdown
     "ltex-ls",
