@@ -26,7 +26,7 @@ lspconfig.clangd.setup {
   capabilities = {
     offsetEncoding = { "utf-16" },
   },
-  filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp" },
+  filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp", "cc", "hh" },
 }
 
 lspconfig.gopls.setup {
@@ -62,21 +62,25 @@ lspconfig.pyright.setup {
 lspconfig.docker_compose_language_service.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "yaml", "yml" },
 }
 
 lspconfig.terraformls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "tf", "tfvars" },
 }
 
 lspconfig.dockerls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "yaml", "yml" },
 }
 
 lspconfig.yamlls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "yaml", "yml" },
   settings = {
     yaml = {
       keyOrdering = false,
@@ -110,6 +114,7 @@ lspconfig.eslint.setup {
     "svelte",
     "astro",
   },
+  root_dir = util.root_pattern(".eslintrc.*"),
 }
 
 lspconfig.ltex.setup {
@@ -126,31 +131,31 @@ lspconfig.ltex.setup {
 lspconfig.sqlls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "sql" },
 }
 
 lspconfig.intelephense.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "php" },
 }
 
 lspconfig.phpactor.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "php" },
 }
 
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  root_dir = util.root_pattern("Cargo.toml"),
 }
 
 lspconfig.ruby_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-}
-
-lspconfig.jdtls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
+  filetypes = { "rb", "erb" },
 }
 
 lspconfig.elixirls.setup {

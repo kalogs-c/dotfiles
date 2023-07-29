@@ -24,9 +24,7 @@ M.treesitter = {
     "terraform",
     "sql",
     "php",
-    "kotlin",
     "ruby",
-    "java",
     "elixir",
     "clojure",
   },
@@ -53,7 +51,6 @@ M.mason = {
     "intelephense",
     "phpactor",
     "ruby-lsp",
-    "jdtls",
 
     -- functional stuff
     "elixir-ls",

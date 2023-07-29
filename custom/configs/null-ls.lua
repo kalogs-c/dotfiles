@@ -10,31 +10,39 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local sources = {
   -- webdev stuff
-  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
   b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
-  b.formatting.eslint,
   b.formatting.fixjson,
+  b.diagnostics.jsonlint,
 
-  b.diagnostics.tsc,
+  -- JS/TS
+  b.formatting.eslint,
+  b.formatting.deno_fmt,
   b.diagnostics.eslint,
+  b.diagnostics.tsc,
+  b.code_actions.eslint,
 
   -- Lua
   b.formatting.stylua,
 
-  -- cpp
-  b.formatting.clang_format,
-
   -- go
   b.formatting.gofumpt,
-  -- b.formatting.goimports_reviser,
+  b.formatting.goimports_reviser,
   b.formatting.golines,
+  b.diagnostics.gospel,
 
   -- C/C++
   b.formatting.clang_format,
+  b.diagnostics.clang_check,
 
   -- devops
   b.formatting.terraform_fmt,
   b.formatting.sql_formatter,
+  b.diagnostics.hadolint,
+
+  -- functional
+  b.formatting.mix,
+  b.diagnostics.credo,
+  b.formatting.cljstyle,
 }
 
 local on_attach = function(client, bufnr)
