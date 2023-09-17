@@ -43,6 +43,7 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
+    "js-debug-adapter",
     "deno",
     "prettier",
     "eslint-lsp",
@@ -50,7 +51,11 @@ M.mason = {
     "svelte-language-server",
     "intelephense",
     "phpactor",
+
+    -- ruby stuff
     "ruby-lsp",
+    "erb-lint",
+    "rubocop",
 
     -- functional stuff
     "elixir-ls",
@@ -82,6 +87,9 @@ M.mason = {
 
     -- markdown
     "ltex-ls",
+
+    -- nim
+    "nimlsp",
   },
 }
 

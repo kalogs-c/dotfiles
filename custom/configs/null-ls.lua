@@ -10,13 +10,21 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local sources = {
   -- webdev stuff
-  b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
+  b.formatting.prettier.with { filetypes = { "html", "markdown", "css", "svelte" } },
   b.formatting.fixjson,
   b.diagnostics.jsonlint,
 
+  -- php
+  b.diagnostics.php,
+  b.formatting.phpcsfixer,
+
+  -- ruby
+  b.diagnostics.erb_lint,
+  b.formatting.erb_lint,
+
   -- JS/TS
   b.formatting.eslint,
-  b.formatting.deno_fmt,
+  -- b.formatting.deno_fmt,
   b.diagnostics.eslint,
   b.diagnostics.tsc,
   b.code_actions.eslint,
@@ -28,7 +36,6 @@ local sources = {
   b.formatting.gofumpt,
   b.formatting.goimports_reviser,
   b.formatting.golines,
-  b.diagnostics.gospel,
 
   -- C/C++
   b.formatting.clang_format,

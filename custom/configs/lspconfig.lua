@@ -62,7 +62,7 @@ lspconfig.pyright.setup {
 lspconfig.docker_compose_language_service.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "yaml", "yml" },
+  filetypes = { "docker-compose" },
 }
 
 lspconfig.terraformls.setup {
@@ -74,7 +74,7 @@ lspconfig.terraformls.setup {
 lspconfig.dockerls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "yaml", "yml" },
+  filetypes = { "dockerfile" },
 }
 
 lspconfig.yamlls.setup {
@@ -114,7 +114,7 @@ lspconfig.eslint.setup {
     "svelte",
     "astro",
   },
-  root_dir = util.root_pattern(".eslintrc.*"),
+  root_dir = util.root_pattern ".eslintrc.*",
 }
 
 lspconfig.ltex.setup {
@@ -149,13 +149,19 @@ lspconfig.phpactor.setup {
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  root_dir = util.root_pattern("Cargo.toml"),
+  root_dir = util.root_pattern "Cargo.toml",
 }
 
 lspconfig.ruby_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "rb", "erb" },
+  filetypes = { "ruby", "erb" },
+}
+
+lspconfig.rubocop.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "ruby", "erb" },
 }
 
 lspconfig.elixirls.setup {
@@ -167,4 +173,10 @@ lspconfig.elixirls.setup {
 lspconfig.clojure_lsp.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+}
+
+lspconfig.nimls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "nim" },
 }
