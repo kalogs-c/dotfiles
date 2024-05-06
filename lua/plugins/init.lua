@@ -1,8 +1,17 @@
 return {
+	-- Format
 	{
 		"stevearc/conform.nvim",
 		config = function()
 			require("configs.conform")
+		end,
+	},
+
+	-- Lint
+	{
+		"mfussenegger/nvim-lint",
+		config = function()
+			require("configs.lint")
 		end,
 	},
 
@@ -23,6 +32,12 @@ return {
 				opts = { lsp = { auto_attach = true } },
 			},
 		},
+	},
+
+	-- Nvim Tree
+	{
+		"nvim-tree/nvim-tree.lua",
+		opts = require("configs.nvim-tree"),
 	},
 
 	-- Mason
@@ -54,7 +69,7 @@ return {
 		"Exafunction/codeium.vim",
 		cmd = "Codeium",
 		build = ":Codeium Auth",
-		opts = {},
+		lazy = false,
 	},
 
 	-- Git
@@ -65,5 +80,21 @@ return {
 	{
 		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
+	},
+
+	-- SQL
+	{
+		"kristijanhusak/vim-dadbod-ui",
+		cmd = {
+      "DBUI",
+      "DBUIToggle",
+    },
+		dependencies = {
+			{ "tpope/vim-dadbod", lazy = true },
+			{ "kristijanhusak/vim-dadbod-completion" },
+		},
+		init = function()
+			vim.g.db_ui_use_nerd_fonts = 1
+		end,
 	},
 }

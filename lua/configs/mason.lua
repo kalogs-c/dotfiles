@@ -6,14 +6,26 @@ mason.ensure_installed = {
 	"stylua",
 
 	-- web dev stuff
+	"svelte-language-server",
 	"typescript-language-server",
 	"eslint-lsp",
-  "eslint_d",
-  "prettier",
+	"eslint_d",
+	"prettier",
 	"fixjson",
 
 	-- devops stuff
 	"dockerfile-language-server",
+
+	-- rust
+	"rust-analyzer",
+
+	-- golang
+	"gopls",
+	"goimports",
+
+	-- python
+	"pyright",
+	"black",
 }
 
 return mason

@@ -4,13 +4,14 @@ local options = {
 	formatters_by_ft = {
 		lua = { "stylua" },
 
-		javascript = { "prettier", "eslint_d" },
-		typescript = { "prettier", "eslint_d" },
-	},
+		javascript = { "eslint_d" },
+		typescript = { "eslint_d" },
 
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_fallback = true,
+    rust = { "rustfmt" },
+
+    go = { "goimports" },
+
+    python = { "black" },
 	},
 }
 
