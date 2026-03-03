@@ -1,0 +1,7 @@
+[tools]
+gh = "latest"
+go = "latest"
+neovim = "latest"
+opencode = "latest"
+ripgrep = "latest"
+zoxide = "latest"
