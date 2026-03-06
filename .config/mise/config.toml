@@ -1,7 +1,11 @@
 [tools]
+eza = "latest"
+fzf = "latest"
 gh = "latest"
 go = "latest"
 neovim = "latest"
 opencode = "latest"
 ripgrep = "latest"
+starship = "latest"
 zoxide = "latest"
+bat = "latest"
