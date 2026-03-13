@@ -3,10 +3,8 @@ window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
 
-confirm-close-surface = always
-
 # tabs
-keybind = ctrl+n=new_tab
+keybind = ctrl+t=new_tab
 keybind = ctrl+x=close_tab:this
 keybind = alt+h=previous_tab
 keybind = alt+l=next_tab
