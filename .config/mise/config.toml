@@ -9,3 +9,7 @@ ripgrep = "latest"
 starship = "latest"
 zoxide = "latest"
 bat = "latest"
+rust = "latest"
+node = "latest"
+"npm:dotenv-cli" = "latest"
+aws-cli = { version = "latest", symlink_bins = "true" }

@@ -93,4 +93,9 @@ return {
 		tools = { "eslint_d" },
 		fmt = { "eslint_d" },
 	},
+	rust = {
+		lsp = "rust_analyzer",
+		fmt = "rustfmt",
+		tools = "rust_analyzer",
+	},
 }
