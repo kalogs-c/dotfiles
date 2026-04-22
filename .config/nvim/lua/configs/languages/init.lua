@@ -60,4 +60,37 @@ return {
 		tools = { "delve", "goimports", "gofumpt" },
 		fmt = { "goimports", "gofumpt" },
 	},
+	typescript = {
+		lsp = {
+			name = "vtsls",
+			opts = {
+				settings = {
+					typescript = {
+						inlayHints = {
+							includeInlayParameterNameHints = "all",
+							includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayVariableTypeHints = true,
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayFunctionLikeReturnTypeHints = true,
+							includeInlayEnumMemberValueHints = true,
+						},
+					},
+					javascript = {
+						inlayHints = {
+							includeInlayParameterNameHints = "all",
+							includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayVariableTypeHints = true,
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayFunctionLikeReturnTypeHints = true,
+							includeInlayEnumMemberValueHints = true,
+						},
+					},
+				},
+			},
+		},
+		tools = { "eslint_d" },
+		fmt = { "eslint_d" },
+	},
 }
